@@ -22,7 +22,6 @@ module.exports = (eleventyConfig) => {
 
 | Option      | Type | Default       |
 | ----------- | ---- | ------------- |
-| tagKey | string | 'tags' |
 | ignore | string[] | [] |
 
 ## Config Examples
@@ -30,7 +29,7 @@ module.exports = (eleventyConfig) => {
 ```js
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(EleventyPluginTagCloud, {
-    tagKey: 'meta'
+    ignore: [ 'posts' ]
   });
 }
 ```

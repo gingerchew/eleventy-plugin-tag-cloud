@@ -1,6 +1,5 @@
 
 const _defaults = {
-  tagKey: 'tags',
   ignore: ['posts']
 }
 
