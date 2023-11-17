@@ -6,6 +6,11 @@
   <title>Plugin Test Page</title>
 </head>
 <body>
+
+  {% for tag in collections.posts | tagCloud %}
+    {{ tag | safe }}
+  {% endfor %}
+
   {{ content | safe }}
 </body>
 </html>
