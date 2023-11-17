@@ -22,12 +22,19 @@ module.exports = (eleventyConfig) => {
 
 | Option      | Type | Default       |
 | ----------- | ---- | ------------- |
-| option name | type | default value |
+| tagKey | string | 'tags' |
+| ignore | string[] | [] |
 
 ## Config Examples
 
-Show examples of likely configurations.
+```js
+module.exports = (eleventyConfig) => {
+  eleventyConfig.addPlugin(EleventyPluginTagCloud, {
+    tagKey: 'meta'
+  });
+}
+```
 
 ## Credits
 
-Add credits if needed.
+- The incredible [11ty plugin boilerplate](https://github.com/5t3ph/eleventy-plugin-template) by [Stephanie Eckles](https://thinkdobecreate.com/)

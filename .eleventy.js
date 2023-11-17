@@ -1,13 +1,13 @@
-// Example use for the demo plugin:
-// {{ 'Steph' | hello | safe }}
 
 const _defaults = {
   tagKey: 'tags',
+  ignore: ['posts']
 }
 
 module.exports = (eleventyConfig, _options) => {
   const {
-    tagKey
+    tagKey,
+    ignore
   } = {
     ..._defaults,
     ..._options
@@ -23,30 +23,13 @@ module.exports = (eleventyConfig, _options) => {
       tags.forEach(tag => tagSet.add(tag));
     }
     
-    const tags = [...tagSet];
-    
-    return tags;
-  });
-
-  eleventyConfig.addFilter('tagMap', (posts) => {
-    if (!posts.length) throw new Error('[@tagCloud]: Invalid collection passed, no items');
-
-    const tagMap = new Map();
-
-    for (const post of posts) {
-      const tags = post.data[tagKey];
-
-      tags.forEach(tag => {
-        if (!tagMap.has(tag)) {
-          tagMap.set(tag, []);
-        }
-        tagMap.get(tag).push(post);
-      });
+    for (const _ignore of ignore) {
+      if (tagSet.has(_ignore)) tagSet.delete(_ignore);
     }
 
-    const tagObj = Object.assign({}, ...Array.from(tagMap.entries(), ([tag, posts]) => ({ [tag]: posts })));
+    const tags = [...tagSet];
 
-    return tagObj;
-  })
+    return tags;
+  });
 };
 

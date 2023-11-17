@@ -8,7 +8,8 @@
 <body>
 
   {% for tag in collections.posts | tagCloud %}
-    {{ tag | safe }}
+
+    {{ tag }}
   {% endfor %}
 
   {{ content | safe }}
