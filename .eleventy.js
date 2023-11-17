@@ -5,7 +5,6 @@ const _defaults = {
 
 module.exports = (eleventyConfig, _options) => {
   const {
-    tagKey,
     ignore
   } = {
     ..._defaults,
@@ -18,7 +17,7 @@ module.exports = (eleventyConfig, _options) => {
     const tagSet = new Set();
 
     for (const post of posts) {
-      const tags = post.data[tagKey]
+      const { tags } = post.data;
       tags.forEach(tag => tagSet.add(tag));
     }
     
