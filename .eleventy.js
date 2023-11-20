@@ -4,12 +4,10 @@ const _defaults = {
 }
 
 module.exports = (eleventyConfig, _options) => {
-  const {
-    ignore
-  } = {
-    ..._defaults,
-    ..._options
-  };
+  const ignore = [
+    ..._defaults.ignore,
+    ...(_options?.ignore ?? [])
+  ]
 
   eleventyConfig.addFilter('tagCloud', (posts = []) => {
     if (!posts.length) throw new Error('[@tagCloud]: Invalid collection passed, no items');
