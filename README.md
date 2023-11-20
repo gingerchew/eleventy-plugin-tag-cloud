@@ -1,4 +1,4 @@
-## Eleventy Plugin Template
+## Eleventy Tag Cloud
 
 > Bring back tag clouds you cowards
 
