@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-tag-cloud",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "Bring back the tag clouds you cowards",
   "homepage": "https://github.com/gingerchew/eleventy-plugin-tag-cloud",
   "main": ".eleventy.js",
