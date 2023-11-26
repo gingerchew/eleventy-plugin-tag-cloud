@@ -6,10 +6,14 @@
   <title>Plugin Test Page</title>
 </head>
 <body>
-
+  <p><code>tagCloud</code></p>
   {% for tag in collections.posts | tagCloud %}
-
     {{ tag }}
+  {% endfor %}
+  <p><code>tagCloudIndex</code></p>
+  {% for tag in collections.posts | tagCloudIndex %}
+    {{ tag | safe }}
+    {{ tag.tagName }} ({{ tag.tagAmount }})
   {% endfor %}
 
   {{ content | safe }}
